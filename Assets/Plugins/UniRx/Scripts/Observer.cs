@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using UnityEngine;
 
 namespace UniRx
 {
@@ -267,7 +268,7 @@ namespace UniRx
     internal static class Stubs
     {
         public static readonly Action Nop = () => { };
-        public static readonly Action<Exception> Throw = ex => { throw ex; };
+        public static readonly Action<Exception> Throw = ex => { Debug.LogError(ex); };
 
         // marker for CatchIgnore and Catch avoid iOS AOT problem.
         public static IObservable<TSource> CatchIgnore<TSource>(Exception ex)
